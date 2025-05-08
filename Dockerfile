@@ -5,7 +5,7 @@ RUN apt update && \
 
 RUN git clone --depth 1 https://github.com/llvm/llvm-project.git && \
     cd llvm-project && \
-    cmake -S llvm -B build -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DCMAKE_INSTALL_PREFIX="/work/clangd" -DCMAKE_BUILD_TYPE=Release && \
+    cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DCMAKE_INSTALL_PREFIX="/work/clangd" -DCMAKE_BUILD_TYPE=Release && \
     cmake --build build --target clangd
 
 FROM ubuntu
