@@ -1,7 +1,7 @@
 FROM ubuntu AS build
 
 RUN apt update && \
-    apt install -y cmake gcc g++ git gnupg lsb-release software-properties-common wget
+    apt install -y cmake gcc g++ git gnupg lsb-release ninja-build software-properties-common wget
 
 RUN git clone --depth 1 https://github.com/llvm/llvm-project.git && \
     cd llvm-project && \
